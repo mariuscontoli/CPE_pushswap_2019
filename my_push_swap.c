@@ -27,7 +27,7 @@ int check_first_sort(int ac, char **av)
 {
     int i = 1;
     while (i < ac - 1) {
-        if (my_getnbr(av[i]) < my_getnbr(av[i + 1])) {
+        if (my_getnbr(av[i]) <= my_getnbr(av[i + 1])) {
             i++;
         } else {
             return (0);
