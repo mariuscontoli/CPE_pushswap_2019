@@ -7,18 +7,21 @@
 
 #include "include/my_push_swap.h"
 
-void find_smallest(pushswap_t pushswap)
+void smallest_in_list(pushswap_t pushswap)
 {
-    pushswap->smallest = pushswap->l_a->start->number;
-    while (pushswap->smallest != pushswap->l_a->start->next->number) {
-        if (pushswap->smallest > pushswap->l_a->start->next->number) {
-            pushswap->smallest = pushswap->l_a->start->next->number;
+    listNode_t *temp;
+    listNode_t *min;
+
+    temp = min = pushswap->l_a->start;
+
+    while (temp != NULL) {
+        if (temp->number < min->number) {
+            min = temp;
         }
-        ra(pushswap);
-        my_putstr("ra");
-        my_putstr(" ");
+        temp = temp->next;
     }
-}
+    pushswap->smallest = min->number;
+} 
 
 void sort(pushswap_t pushswap)
 {
@@ -37,7 +40,7 @@ void sort(pushswap_t pushswap)
 void do_sort(pushswap_t pushswap)
 {
     while (pushswap->l_a->start != pushswap->l_a->end) {
-        find_smallest(pushswap);
+        smallest_in_list(pushswap);
         sort(pushswap);
     }
     while (pushswap->l_b->start->next != NULL) {
