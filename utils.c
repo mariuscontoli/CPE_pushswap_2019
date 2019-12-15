@@ -9,20 +9,18 @@
 
 int my_getnbr(char *str)
 {
-    int	i = 0;
+    int i = 0;
+    int sign = 1;
     int	tmp = 0;
 
-    (str[0] == '-' && str[1]) ? i++ : 0;
-    for (; str[i]; i++) {
-        if ((str[i] < 48 || str[i] > 57))
-            exit (84);
-        tmp += str[i] - 48;
-        tmp *= 10;
+    if (str[0] == '-') {
+        sign = -1;
+        i++;
     }
-    tmp /= 10;
-    if (str[0] == '-')
-        return (tmp * (-1));
-    else return tmp;
+    for (; str[i] != '\0'; ++i) {
+            tmp = tmp * 10 + str[i] - '0';
+    }
+    return (tmp * sign);
 }
 
 void my_putchar(char c)
