@@ -9,7 +9,14 @@ CC =	gcc
 
 NAME	=	push_swap
 
-SRC	=	$(wildcard *.c)
+SRC	=	src/algo.c\
+		src/my_push_swap.c\
+		src/operations.c\
+		src/operations2.c\
+		src/operations3.c\
+		src/push_pop.c\
+		src/utils_list.c\
+		src/utils.c\
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -23,6 +30,7 @@ $(NAME): $(OBJ)
 
 clean:
 	rm -rf *.o
+	rm -rf src/*.o
 
 fclean: clean
 	rm -f $(NAME)
